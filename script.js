@@ -42,3 +42,11 @@ function shakeButton(ghostBtn) {
     }, 1000);
   
 }
+
+function navigateToRoseDay() {
+    document.body.classList.add("page-exit");
+    setTimeout(() => {
+        document.body.classList.remove("page-exit");
+        window.location.href = "rose.html";
+    }, 900);
+}
