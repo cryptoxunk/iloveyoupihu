@@ -26,6 +26,8 @@
     --bg-secondary: #1A1A22;
     --bg-soft: #242430;
 
+    --bg-rose: #2a0f18;
+
     --accent-primary: #FF6B8A;
     --accent-soft: #FF9FB3;
     --accent-muted: #FFC2CF;
@@ -83,13 +85,17 @@ body {
     }
 }
 
+body.rose {
+    background: var(--bg-rose);
+}
+
 .heart-blob {
     position: fixed;
     bottom: 40px;
     left: 80px;
     width: 80px;
     height: 80px;
-    background: #2a0f18;
+    background: var(--bg-rose);
     animation: heartBeat 2.4s ease-in-out infinite;
     clip-path: shape(from 50% 91%, line to 90% 50%, arc to 50% 9%  of 1%, arc to 10% 50% of 1%);
 }
@@ -188,10 +194,22 @@ button.secondary:hover {
     padding-top: 32px;
     font-family: var(--font-heading);
     font-size: var(--fs-body-sm);
+    position: relative;
 }
 
 .cute-bait:hover {
     text-shadow: 0 0 8px rgba(255, 143, 163, 0.6);
+}
+
+.cute-bait:hover::before {
+    content: "click me!";
+    top: 0;
+    color: var(--bg-secondary);
+    border-radius: 12px;
+    padding-inline: 8px;
+    position: absolute;
+    background: var(--gradient-accent);
+    animation: ghostShake 0.5s ease;
 }
 
 .cute-bait:hover::after {
@@ -221,6 +239,21 @@ body.blush {
     opacity: 0.9;
 }
 
+body.page-exit {
+  animation: pageFadeOut 1s ease forwards;
+}
+
+@keyframes pageFadeOut {
+    0% {
+        background-color: var(--bg-primary);
+    }
+    30% {
+        background-color: var(--bg-rose);
+    }
+    100% {
+        background-color: var(--bg-rose);
+    }
+}
 
 .secondary.shake {
     animation: ghostShake 0.5s ease;
@@ -295,7 +328,7 @@ p {
     }
 
     40% {
-        background-color: #2a0f18;
+        background-color: var(--bg-rose);
     }
 
     100% {
