@@ -1,0 +1,342 @@
+:root {
+    --font-heading: 'Fredoka', serif;
+    --font-body: 'Poppins', sans-serif;
+
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    --fs-hero: 64px;
+    --fs-hero-sub: 28px;
+    --fs-h1: 48px;
+    --fs-h2: 36px;
+    --fs-h3: 28px;
+    --fs-h4: 22px;
+    --fs-body-lg: 18px;
+    --fs-body: 16px;
+    --fs-body-sm: 14px;
+    --fs-button: 16px;
+    --fs-input: 15px;
+    --fs-caption: 13px;
+    --fs-micro: 12px;
+
+    --bg-primary: #0F0F14;
+    --bg-secondary: #1A1A22;
+    --bg-soft: #242430;
+
+    --accent-primary: #FF6B8A;
+    --accent-soft: #FF9FB3;
+    --accent-muted: #FFC2CF;
+
+    --gradient-accent: linear-gradient(135deg,
+            #FF6B8A 0%,
+            #FF8FA3 50%,
+            #FFC2CF 100%);
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #E5E7EB;
+    --text-muted: #9CA3AF;
+    --text-accent: #FF9FB3;
+
+    --border-soft: rgba(255, 255, 255, 0.12);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --shadow-accent: 0 0 25px rgba(255, 107, 138, 0.45);
+    --shadow-button: 0 6px 18px rgba(255, 107, 138, 0.35);
+
+    --default-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>💗</text></svg>") 16 16, auto;
+    --click-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>💓</text></svg>") 16 16, auto;
+    --disabled-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>💔</text></svg>") 16 16, auto;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --fs-hero: 40px;
+        --fs-hero-sub: 22px;
+        --fs-h1: 32px;
+        --fs-h2: 26px;
+    }
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: var(--default-cursor);
+
+    ::selection {
+        background: var(--accent-primary);
+    }
+}
+
+.heart-blob {
+    position: fixed;
+    bottom: 40px;
+    left: 80px;
+    width: 80px;
+    height: 80px;
+    background: #2a0f18;
+    animation: heartBeat 2.4s ease-in-out infinite;
+    clip-path: shape(from 50% 91%, line to 90% 50%, arc to 50% 9%  of 1%, arc to 10% 50% of 1%);
+}
+
+.heart-blob:hover::after {
+    content: "360 days of love!";
+    text-shadow: var(--shadow-accent);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    text-align: center;
+    font-size: 8px;
+}
+
+.heart-blob:hover::before {
+    content: "✨";
+    left: 12%;
+    top: 10%;
+    position: absolute;
+    z-index: 1;
+    animation: heartBeat 1s ease-in-out infinite;
+}
+
+.bg-blob {
+    position: fixed;
+    width: 420px;
+    height: 420px;
+
+    background: radial-gradient(circle, rgba(255, 107, 138, 0.4), transparent 70%);
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.blob-1 {
+    top: -120px;
+    left: -120px;
+}
+
+.blob-2 {
+    bottom: -140px;
+    right: -140px;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 64px;
+    gap: 32px;
+}
+
+.button-group {
+    display: flex;
+    gap: 64px;
+}
+
+button {
+    font-family: var(--font-body);
+    font-size: var(--fs-body-lg);
+    font-weight: var(--fw-bold);
+    /* color: var(--text-primary);
+    background: var(--accent-primary); */
+    padding: 16px 32px;
+    border-radius: 128px;
+    transition: all 0.25s ease;
+    border: none;
+}
+
+button.primary {
+    background: var(--gradient-accent);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-button);
+}
+
+button.primary:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: var(--shadow-accent);
+}
+
+button.secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 4px solid var(--text-secondary);
+    cursor: var(--disabled-cursor);
+}
+
+button.secondary:hover {
+    color: var(--text-primary);
+    border-color: var(--accent-soft);
+    background: rgba(255, 107, 138, 0.08);
+}
+
+.cute-bait {
+    padding-top: 32px;
+    font-family: var(--font-heading);
+    font-size: var(--fs-body-sm);
+}
+
+.cute-bait:hover {
+    text-shadow: 0 0 8px rgba(255, 143, 163, 0.6);
+}
+
+.cute-bait:hover::after {
+    content: "💕";
+    position: absolute;
+    animation: floatUp 2s ease forwards;
+}
+
+body.blush {
+    animation: blushPulse 3s ease;
+}
+
+
+.heart-burst {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.heart {
+    position: absolute;
+    font-size: var(--fs-body);
+    text-shadow: var(--shadow-button);
+    animation: floatUp 5s ease forwards;
+    opacity: 0.9;
+}
+
+
+.secondary.shake {
+    animation: ghostShake 0.5s ease;
+}
+
+.secondary.shake::after {
+    content: "💔";
+    font-size: var(--fs-micro);
+    position: absolute;
+    animation: floatUp 2s ease forwards;
+}
+
+button,
+a,
+[onclick] {
+    cursor: var(--click-cursor);
+}
+
+p {
+    font-family: var(--font-heading);
+    font-size: var(--fs-hero-sub);
+}
+
+.heading {
+    position: relative;
+    font-family: var(--font-heading);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-h1);
+}
+
+.heading::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    width: 140%;
+    height: 140%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(circle,
+            rgba(255, 107, 138, 0.35) 0%,
+            rgba(255, 107, 138, 0.18) 40%,
+            rgba(255, 107, 138, 0.08) 60%,
+            transparent 75%);
+    filter: blur(40px);
+}
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    25% {
+        transform: translateX(-50%) scale(1.08);
+    }
+
+    40% {
+        transform: translateX(-50%) scale(0.96);
+    }
+
+    60% {
+        transform: translateX(-50%) scale(1.06);
+    }
+}
+
+@keyframes blushPulse {
+    0% {
+        background-color: var(--bg-primary);
+    }
+
+    40% {
+        background-color: #2a0f18;
+    }
+
+    100% {
+        background-color: var(--bg-primary);
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-120px) scale(1.8);
+        opacity: 0;
+    }
+}
+
+@keyframes ghostShake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-6px) translateY(-2px);
+    }
+
+    40% {
+        transform: translateX(6px) translateY(2px);
+    }
+
+    60% {
+        transform: translateX(-4px) translateY(-1px);
+    }
+
+    80% {
+        transform: translateX(4px) translateY(1px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
