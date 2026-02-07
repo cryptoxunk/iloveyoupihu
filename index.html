@@ -1,7 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>I Love You Pihu</title>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>Hosted on GitHub Pages.</p>
+    <main>
+        <p>A small gesture for my lady Pihu🌹</p>
+        <h1 class="heading">Enter only if you’re smiling, baby</h1>
+        <p>Click if you’re ready for something special!</p>
+        <div class="button-group">
+            <button class="primary">
+            I’m smiling (promise)
+            </button>
+
+            <button class="secondary" onclick="shakeButton(this)">
+            Wait… let me smile first
+            </button>
+        </div>
+        <p class="cute-bait" id="cuteBait" onclick="burstHearts()">You look cute today btw :3</p>
+        <div class="heart-burst" id="heartBurst"></div>
+    </main>
+    <div class="heart-blob"></div>
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <script src="script.js"></script>
 </body>
 </html>
