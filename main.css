@@ -435,7 +435,7 @@ p {
 .image-petal {
     position: absolute;
     top: -40px;
-    background: url("assets/petal.png") center/contain no-repeat;
+    background: url("./petal.png") center/contain no-repeat;
     filter: blur(1px);
     animation: fall linear forwards;
 }
