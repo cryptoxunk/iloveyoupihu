@@ -6,25 +6,16 @@
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <title>Happy Rose Day Darling</title>
+    <title>Looking For Real Pihu</title>
 </head>
 <body class="rose">
     <main>
-        <h1 class="heading">Happy Rose Day Darling</h1>
-
-        <img src="../assets/rose.png" alt="A rose for you" class="rose-image"/>
-
-        <p class="rose-line">
-            I couldn’t hand you a rose today…
-            so I made you one instead.
-        </p>
-
-        <button class="primary" onclick="navigateToAuth()">
-            Accept this rose 🌹
-        </button>
-
+        <h1 class="heading">Let me make sure it’s really you, madam</h1>
+        <input type="text" placeholder="Enter your name" onblur="validateName(this)">
+        <input type="password" placeholder="Enter the secret password" onchange="validatePassword(this)">
+        <button class="primary submit" onclick="submitForm()">That’s me 💖</button>
     </main>
-    <div class="heart-blob"></div>
+    <div class="heart-blob love"></div>
     <div class="bg-blob blob-1"></div>
     <div class="bg-blob blob-2"></div>
     <script src="script.js"></script>

@@ -52,6 +52,7 @@
     --default-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>💗</text></svg>") 16 16, auto;
     --click-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>💓</text></svg>") 16 16, auto;
     --disabled-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>💔</text></svg>") 16 16, auto;
+    --input-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>✨</text></svg>") 16 16, auto;
 }
 
 html {
@@ -89,6 +90,15 @@ body.rose {
     background: var(--bg-rose);
 }
 
+img {
+    width: 100%;
+}
+
+.rose-image {
+    transform: scale(1.5);
+    width: 256px;
+}
+
 .heart-blob {
     position: fixed;
     bottom: 40px;
@@ -109,6 +119,10 @@ body.rose {
     transform: translate(-50%, -80%);
     text-align: center;
     font-size: 8px;
+}
+
+.heart-blob.love:hover::after {
+    content: "I love you";
 }
 
 .heart-blob:hover::before {
@@ -158,12 +172,34 @@ button {
     font-family: var(--font-body);
     font-size: var(--fs-body-lg);
     font-weight: var(--fw-bold);
-    /* color: var(--text-primary);
-    background: var(--accent-primary); */
     padding: 16px 32px;
     border-radius: 128px;
     transition: all 0.25s ease;
     border: none;
+}
+
+input {
+    font-family: var(--font-body);
+    font-size: var(--fs-body-lg);
+    font-weight: var(--fw-bold);
+    padding: 16px 32px;
+    border-radius: 128px;
+    color: var(--text-primary);
+    border-color: var(--accent-soft);
+    border: 4px solid var(--text-secondary);
+    background: rgba(255, 107, 138, 0.08);
+    cursor: var(--input-cursor);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    background: rgba(255, 107, 138, 0.12);
+    box-shadow: var(--shadow-accent);
+}
+
+input::placeholder {
+    color: var(--text-muted);
 }
 
 button.primary {
@@ -189,6 +225,78 @@ button.secondary:hover {
     border-color: var(--accent-soft);
     background: rgba(255, 107, 138, 0.08);
 }
+
+button.secondary:disabled:hover {
+    border-color: var(--text-secondary);
+}
+
+button.submit {
+    margin-top: 64px;
+    color: var(--bg-rose);
+}
+
+.love-screen {
+    padding-top: 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* Heading */
+.love-heading {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  margin-bottom: 30px;
+  text-shadow:
+    0 0 10px rgba(255,107,138,0.4),
+    0 0 25px rgba(255,107,138,0.3);
+
+  animation: heartGlow 3s ease-in-out infinite;
+}
+
+@keyframes heartGlow {
+  0%,100% {
+    text-shadow:
+      0 0 8px rgba(255,107,138,0.3),
+      0 0 20px rgba(255,107,138,0.2);
+  }
+
+  50% {
+    text-shadow:
+      0 0 18px rgba(255,107,138,0.6),
+      0 0 40px rgba(255,107,138,0.4);
+  }
+}
+
+
+/* Rotating language text */
+.love-language {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  color: var(--accent-primary);
+
+  opacity: 0;
+  transform: scale(0.9);
+
+  animation: loveFade 2s ease forwards;
+}
+
+
+/* Animation keyframe */
+@keyframes loveFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 
 .cute-bait {
     padding-top: 32px;
@@ -266,6 +374,20 @@ body.page-exit {
     animation: floatUp 2s ease forwards;
 }
 
+input.shake {
+    animation: ghostShake 0.5s ease;
+}
+
+input.invalid {
+    border-color: var(--bg-rose);
+    box-shadow: var(--shadow-accent);
+}
+
+input.valid {
+    border-color: var(--accent-muted);
+    box-shadow: var(--shadow-button);
+}
+
 button,
 a,
 [onclick] {
@@ -282,6 +404,40 @@ p {
     font-family: var(--font-heading);
     font-weight: var(--fw-regular);
     font-size: var(--fs-h1);
+}
+
+.heading.valentine {
+    margin-top: 128px;
+}
+
+.petal-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.petal {
+  position: absolute;
+  top: -40px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,182,193,0.9),
+    rgba(255,105,135,0.7) 60%,
+    transparent 80%
+  );
+  border-radius: 60% 40% 60% 40%;
+  opacity: 0.8;
+  animation: fall linear forwards;
+}
+
+.image-petal {
+    position: absolute;
+    top: -40px;
+    background: url("assets/petal.png") center/contain no-repeat;
+    filter: blur(1px);
+    animation: fall linear forwards;
 }
 
 .heading::after {
@@ -302,6 +458,12 @@ p {
     filter: blur(40px);
 }
 
+.move-button {
+  position: absolute;
+  transition: 0.25s ease;
+}
+
+
 @keyframes heartBeat {
 
     0%,
@@ -320,6 +482,16 @@ p {
     60% {
         transform: translateX(-50%) scale(1.06);
     }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
 }
 
 @keyframes blushPulse {

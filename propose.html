@@ -6,27 +6,26 @@
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <title>Happy Rose Day Darling</title>
+    <title>Will you be mine?</title>
 </head>
 <body class="rose">
     <main>
-        <h1 class="heading">Happy Rose Day Darling</h1>
+        <h1 class="heading valentine">Hey, will you be my valentine Pihu?</h1>
+        <div class="button-group">
+            <button class="primary" onclick="navigateToLove();">
+            Of course, yes!💖
+            </button>
 
-        <img src="../assets/rose.png" alt="A rose for you" class="rose-image"/>
-
-        <p class="rose-line">
-            I couldn’t hand you a rose today…
-            so I made you one instead.
-        </p>
-
-        <button class="primary" onclick="navigateToAuth()">
-            Accept this rose 🌹
-        </button>
-
+            <button class="secondary" onmouseenter="noButtonHoverAction(this)" onclick="navigateToLove();" disabled>
+            No 😤
+            </button>
+        </div>
+        <p class="cute-bait" onclick="startPetalShower()">Today and every day after :)</p>
     </main>
-    <div class="heart-blob"></div>
+    <div class="petal-container" id="petalContainer"></div>
     <div class="bg-blob blob-1"></div>
     <div class="bg-blob blob-2"></div>
     <script src="script.js"></script>
+    <script src="spawnPetal.js"></script>
 </body>
 </html>
